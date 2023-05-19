@@ -9,8 +9,9 @@ export default function Home() {
           <code className="font-mono font-bold">src/app/page.tsx</code>
         </p>
       </div>
-      <div className="border w-full">
-        <h1 className="text-[40px] font-semibold">LOREUM-IPSUM</h1>
+      <div className="border w-full h-[50vh]">
+        <h1 className="text-[40px] font-semibold">LOREUM-IPSUM,</h1>
+        <div className="text-[30px]">a smart way to buy propery</div>
       </div>
     </main>
   );
