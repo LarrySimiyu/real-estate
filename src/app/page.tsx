@@ -10,7 +10,7 @@ export default function Home() {
           <ArrowRight size={24} />
         </button>
       </div>
-      <div className=" w-full h-[100vh] md:px-10">
+      <div className=" w-full h-[100vh] md:px-10 border">
         <div className=" md:w-1/2 md:h-full flex flex-col justify-center">
           <div className="md:text-[100px] md:w-2/3 font-bold mb-8 leading-[1]">
             Invest in real estate
@@ -25,9 +25,9 @@ export default function Home() {
           </button>
         </div>
       </div>
-      <div className=" md:w-full md:flex md:h-[300px]">
+      <div className=" md:w-full md:flex md:h-[300px] border">
         <div className=" md:w-[100%]">
-          <h1>About</h1>
+          <h1 className="font-bold">About</h1>
         </div>
         <div className="  text-[30px] pr-20">
           Vivamus non massa purus. Proin vestibulum lobortis libero. Sed enim
