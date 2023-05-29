@@ -38,6 +38,18 @@ export default function Home() {
           vestibulum lacus.
         </div>
       </div>
+      <div className="md:h-[600px] w-full bg-white text-black flex flex-col justify-center items-center ">
+        <div className="flex flex-col border w-[80%]">
+          <div className="font-semibold text-[24px] mb-8">Our Mission</div>
+          <div className="md:text-[80px] md:w-[50%] font-bold mb-8 leading-[1] border">
+            Creation of investment opportunities
+          </div>
+          <p className="text-[20px] w-1/3 border ">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu
+            tellus dui.
+          </p>
+        </div>
+      </div>
     </main>
   );
 }
