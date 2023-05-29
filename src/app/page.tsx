@@ -2,7 +2,7 @@ import Image from "next/image";
 import { ArrowRight } from "react-feather";
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center bg-black text-white md:px-10">
+    <main className="flex min-h-screen flex-col items-center bg-black text-white md:px-20">
       <div className=" z-10 w-full  items-center justify-between text-sm lg:flex md:h-[70px]">
         <div className="font-bold text-[60px]">PRI.</div>
         <button className="border rounded-3xl  md:w-[10%] md:h-12 hover:text-black hover:bg-white  text-[18px] flex justify-center items-center">
@@ -10,9 +10,9 @@ export default function Home() {
           <ArrowRight size={24} />
         </button>
       </div>
-      <div className=" w-full h-[100vh] md:px-10 border">
+      <div className=" w-full h-[100vh]  border">
         <div className=" md:w-1/2 md:h-full flex flex-col justify-center">
-          <div className="md:text-[100px] md:w-2/3 font-bold mb-8 leading-[1]">
+          <div className="md:text-[100px] md:w-[70%] font-bold mb-8 leading-[1] border">
             Invest in real estate
           </div>
           <p className="text-[20px] w-1/2 ">
@@ -27,7 +27,7 @@ export default function Home() {
       </div>
       <div className=" md:w-full md:flex md:h-[300px] border">
         <div className=" md:w-[100%]">
-          <h1 className="font-bold">About</h1>
+          <h1 className="font-semibold text-[24px]">About</h1>
         </div>
         <div className="  text-[30px] pr-20">
           Vivamus non massa purus. Proin vestibulum lobortis libero. Sed enim
