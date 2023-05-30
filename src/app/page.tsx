@@ -10,9 +10,9 @@ export default function Home() {
           <ArrowRight size={24} />
         </button>
       </div>
-      <div className=" w-full h-[100vh]  border">
+      <div className=" w-full h-[100vh]  ">
         <div className=" md:w-1/2 md:h-full flex flex-col justify-center">
-          <div className="md:text-[100px] md:w-[70%] font-bold mb-8 leading-[1] border">
+          <div className="md:text-[100px] md:w-[70%] font-bold mb-8 leading-[1] ">
             Invest in real estate
           </div>
           <p className="text-[20px] w-1/2 ">
@@ -25,7 +25,7 @@ export default function Home() {
           </button>
         </div>
       </div>
-      <div className=" md:w-full md:flex md:h-[300px] border">
+      <div className=" md:w-full md:flex md:h-[300px] ">
         <div className=" md:w-[100%]">
           <h1 className="font-semibold text-[24px]">About</h1>
         </div>
@@ -39,12 +39,12 @@ export default function Home() {
         </div>
       </div>
       <div className="md:h-[600px] w-full bg-white text-black flex flex-col justify-center items-center ">
-        <div className="flex flex-col border w-[80%]">
+        <div className="flex flex-col  w-[80%]">
           <div className="font-semibold text-[24px] mb-8">Our Mission</div>
-          <div className="md:text-[80px] md:w-[50%] font-bold mb-8 leading-[1] border">
+          <div className="md:text-[80px] md:w-[50%] font-bold mb-8 leading-[1] ">
             Creation of investment opportunities
           </div>
-          <p className="text-[20px] w-1/3 border ">
+          <p className="text-[20px] w-1/3  ">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu
             tellus dui.
           </p>
