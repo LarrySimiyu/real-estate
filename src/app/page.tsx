@@ -1,8 +1,21 @@
 import Image from "next/image";
 import { ArrowRight } from "react-feather";
+import ProperyCard from "@/components/PropertyCard";
 export default function Home() {
+  const info = [
+    {
+      title: "Property Acquisition",
+      description:
+        "Our experienced team finds properties that align with your goals. With thorough market research and evaluations, we offer access to promising residential, commercial, and mixed-use investment options.",
+    },
+    {
+      title: "Life Insurance Policies",
+      description:
+        "We understand the significance of securing your financial future. We offer tailored life insurance policies exclusively for real estate investors, providing comprehensive coverage and peace of mind. Safeguard your assets and ensure stability for your loved ones with our personalized solutions.",
+    },
+  ];
   return (
-    <main className="flex min-h-screen flex-col items-center bg-black text-white md:px-20 border border-white ">
+    <main className="flex min-h-screen flex-col items-center bg-black text-white md:px-20">
       <div className=" z-10 w-full  items-center justify-between text-sm lg:flex md:h-[70px] ">
         <div className="font-bold text-[60px]">PRI.</div>
         <button className="border rounded-3xl  md:w-[10%] md:h-12 hover:text-black hover:bg-white  text-[18px] flex justify-center items-center">
@@ -15,7 +28,7 @@ export default function Home() {
           <div className="md:text-[100px] md:w-[75%] font-bold mb-8 leading-[1] ">
             Invest in real estate
           </div>
-          <p className="text-[20px] w-1/2 ">
+          <p className="text-[20px] md:w-3/4 ">
             We are your trusted partner for real estate investment, wealth
             growth, passive income, and financial freedom.
           </p>
@@ -43,10 +56,31 @@ export default function Home() {
           <div className="md:text-[80px] md:w-[50%] font-bold mb-8 leading-[1] ">
             Creation of investment opportunities
           </div>
-          <p className="text-[20px] w-1/3  ">
-            We are your trusted partner for real estate investment, wealth
-            growth, passive income, and financial freedom.
+          <p className="text-[20px] w-1/2  ">
+            Empowering wealth creation through diverse investment opportunities
+            for long-term financial success.
           </p>
+        </div>
+      </div>
+      <div className="md:h-[600px] w-full bg-white text-black flex  flex-col  md:px-10">
+        <div className="md:text-[30px]  font-bold mb-8 leading-[1] ">
+          Creation of investment opportunities
+        </div>
+        <div className="flex md:justify-around  items-center">
+          {info.map((tab) => {
+            return (
+              <div
+                key={tab.title}
+                className="border text-black border-white bg-gray-100 rounded-md md:w-1/3 md:h-3/4 flex flex-col px-5
+              "
+              >
+                <div className="font-bold text-[50px]">{tab.title}</div>
+                <p className="text-[18px] text-gray-400 leading-8">
+                  {tab.description}
+                </p>
+              </div>
+            );
+          })}
         </div>
       </div>
     </main>
