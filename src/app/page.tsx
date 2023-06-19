@@ -16,8 +16,8 @@ export default function Home() {
             Invest in real estate
           </div>
           <p className="text-[20px] w-1/2 ">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu
-            tellus dui.
+            We are your trusted partner for real estate investment, wealth
+            growth, passive income, and financial freedom.
           </p>
           <button className="border rounded-3xl  md:w-[30%] md:h-12 md:mt-10 hover:text-black hover:bg-white  text-[18px] flex justify-center items-center">
             <div className="mr-2">Contact</div>
@@ -30,12 +30,11 @@ export default function Home() {
           <h1 className="font-semibold text-[24px]">About</h1>
         </div>
         <div className="  text-[30px] pr-20">
-          Vivamus non massa purus. Proin vestibulum lobortis libero. Sed enim
-          velit, iaculis vel viverra ut, laoreet in tortor. Vestibulum ultricies
-          turpis non erat faucibus interdum. Fusce venenatis erat orci, in
-          sodales justo facilisis eu. Suspendisse id augue libero. Aliquam
-          aliquam ligula sem, quis condimentum mi vestibulum eget. Ut sit amet
-          vestibulum lacus.
+          Platinum Realty Investments is a premier real estate acquisition group
+          dedicated to maximizing the potential of every investment opportunity.
+          With a proven track record of success, we specialize in identifying
+          lucrative properties and implementing strategic investment strategies
+          to generate substantial returns for our clients.
         </div>
       </div>
       <div className="md:h-[600px] w-full bg-white text-black flex flex-col justify-center items-center">
@@ -45,8 +44,8 @@ export default function Home() {
             Creation of investment opportunities
           </div>
           <p className="text-[20px] w-1/3  ">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu
-            tellus dui.
+            We are your trusted partner for real estate investment, wealth
+            growth, passive income, and financial freedom.
           </p>
         </div>
       </div>
