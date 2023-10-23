@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { ArrowRight } from "react-feather";
+import Link from "next/link";
 import ProperyCard from "@/components/PropertyCard";
 export default function Home() {
   const info = [
@@ -16,13 +17,14 @@ export default function Home() {
   ];
   return (
     <main className="flex min-h-screen flex-col items-center bg-black text-white md:px-20">
-      <div className="max-w-[1366px]">
-        <div className=" z-10 w-full  items-center justify-between text-sm lg:flex md:h-[70px] ">
+      <div className="max-w-[1366px] w-full">
+        <div className=" z-10 w-full items-center justify-between text-sm lg:flex md:h-[70px] border">
           <div className="font-bold text-[60px]">PRI.</div>
-          <button className="border rounded-3xl  md:w-[10%] md:h-12 hover:text-black hover:bg-white  text-[18px] flex justify-center items-center">
-            <div className="mr-2">Contact</div>
-            <ArrowRight size={24} />
-          </button>
+          <div className="border w-1/3 flex justify-between">
+            <Link href="/properties">Properties</Link>
+
+            <Link href="/adminPage">Admin</Link>
+          </div>
         </div>
         <div className=" w-full h-[100vh] ">
           <div className=" md:w-3/4 md:h-full flex flex-col justify-center">
