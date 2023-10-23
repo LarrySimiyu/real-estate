@@ -30,6 +30,30 @@ const AdminPage = () => {
       location: "17 Carvel Pl Sacramento Ca",
       image: house,
     },
+    {
+      price: "$5,000,000",
+      description: "10 Units + 3 Bathrooms",
+      location: "17 Carvel Pl Sacramento Ca",
+      image: house,
+    },
+    {
+      price: "$5,000,000",
+      description: "10 Units + 3 Bathrooms",
+      location: "17 Carvel Pl Sacramento Ca",
+      image: house,
+    },
+    {
+      price: "$5,000,000",
+      description: "10 Units + 3 Bathrooms",
+      location: "17 Carvel Pl Sacramento Ca",
+      image: house,
+    },
+    {
+      price: "$5,000,000",
+      description: "10 Units + 3 Bathrooms",
+      location: "17 Carvel Pl Sacramento Ca",
+      image: house,
+    },
   ];
   return (
     <div className="flex min-h-screen flex-col items-center bg-black text-white md:px-20">
@@ -46,9 +70,9 @@ const AdminPage = () => {
             })}
           </div>
         </div>
-        <div className="border flex justify-end ">Add Property</div>
+        <div className=" flex justify-end ">Add Property</div>
 
-        <div className="border">
+        <div className=" flex flex-wrap justify-between gap-10">
           {/* - upload property modal - show all properties - when property is
           clicked open edit modal */}
           {properties.map((p) => {
