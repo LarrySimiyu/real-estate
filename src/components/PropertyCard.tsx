@@ -1,10 +1,17 @@
 import Image from "next/image";
 import house from "../../assets/house.jpeg";
+import EditPropertyModal from "./EditPropertyModal";
 
-const PropertyCard = ({ property, admin, setEditModalOpen }) => {
+const PropertyCard = ({ property, admin, setEditModalOpen, editModalOpen }) => {
   const { price, description, location, image } = property;
   return (
     <div className="flex flex-col cursor-pointer w-[300px] h-[300px] justify-center items-center bg-[#222222] rounded-md hover:border-2 hover:border-white">
+      {editModalOpen && (
+        <EditPropertyModal
+          setEditModalOpen={setEditModalOpen}
+          property={property}
+        />
+      )}
       <Image
         src={house}
         alt="Header"

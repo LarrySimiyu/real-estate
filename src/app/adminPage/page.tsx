@@ -89,18 +89,18 @@ const AdminPage = () => {
           clicked open edit modal */}
           {properties.map((p) => {
             return (
-              <PropertyCard
-                key={p.location}
-                property={p}
-                admin={true}
-                setEditModalOpen={setEditModalOpen}
-              />
+              <>
+                <PropertyCard
+                  key={p.location}
+                  property={p}
+                  admin={true}
+                  setEditModalOpen={setEditModalOpen}
+                  editModalOpen={editModalOpen}
+                />
+              </>
             );
           })}
         </div>
-        {editModalOpen && (
-          <EditPropertyModal setEditModalOpen={setEditModalOpen} />
-        )}
       </div>
     </div>
   );
