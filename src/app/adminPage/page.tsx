@@ -1,16 +1,24 @@
+"use client";
 import React, { useState, useEffect } from "react";
 
 import PropertyCard from "@/components/PropertyCard";
 import Link from "next/link";
 import house from "../../../assets/house.jpeg";
+import EditPropertyModal from "@/components/EditPropertyModal";
 
 const AdminPage = () => {
+  const [addModalOpen, setAddModalOpen] = useState(false);
+  const [editModalOpen, setEditModalOpen] = useState(false);
   {
     /* TODO: Create Add Property Page
             TODO: Create Add Team Member Page
             TODO: Import property item
             TODO: ADD Edit property modal -> delete button, update options */
   }
+
+  const handleSignOut = () => {
+    // firebase sign out here
+  };
 
   const navLinks = [
     {
@@ -21,6 +29,10 @@ const AdminPage = () => {
       name: "Team",
       route: "/team",
     },
+    // {
+    //   name: "Sign Out",
+    //   route: () => handleSignOut(),
+    // },
   ];
 
   const properties = [
@@ -57,7 +69,7 @@ const AdminPage = () => {
   ];
   return (
     <div className="flex min-h-screen flex-col items-center bg-black text-white md:px-20">
-      <div className="max-w-[1366px] w-full">
+      <div className="max-w-[1366px] w-full border">
         <div className=" z-10 w-full items-center justify-between text-sm lg:flex md:h-[70px] border">
           <div className="font-bold text-[60px]">PRI.</div>
           <div className="border w-1/3 flex justify-between">
@@ -76,9 +88,19 @@ const AdminPage = () => {
           {/* - upload property modal - show all properties - when property is
           clicked open edit modal */}
           {properties.map((p) => {
-            return <PropertyCard key={p.location} property={p} />;
+            return (
+              <PropertyCard
+                key={p.location}
+                property={p}
+                admin={true}
+                setEditModalOpen={setEditModalOpen}
+              />
+            );
           })}
         </div>
+        {editModalOpen && (
+          <EditPropertyModal setEditModalOpen={setEditModalOpen} />
+        )}
       </div>
     </div>
   );
