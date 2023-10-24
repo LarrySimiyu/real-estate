@@ -1,13 +1,12 @@
 "use client";
 import React, { useState, useEffect } from "react";
 
-import PropertyCard from "@/components/PropertyCard";
+import TeamCard from "@/components/TeamCard";
 import Link from "next/link";
 import house from "../../../assets/house.jpeg";
 import EditPropertyModal from "@/components/EditPropertyModal";
-import TeamCard from "@/components/TeamCard";
 
-const AdminPage = () => {
+const TeamPage = () => {
   const [addModalOpen, setAddModalOpen] = useState(false);
   const [editModalOpen, setEditModalOpen] = useState(false);
   {
@@ -24,7 +23,7 @@ const AdminPage = () => {
   const navLinks = [
     {
       name: "Properties",
-      route: "/propertiesAdmin",
+      route: "/adminPage",
     },
     {
       name: "Team",
@@ -36,35 +35,30 @@ const AdminPage = () => {
     // },
   ];
 
-  const properties = [
+  const teamMembers = [
     {
-      price: "$5,000,000",
-      description: "10 Units + 3 Bathrooms",
-      location: "17 Carvel Pl Sacramento Ca",
+      name: "Larry Simiyu",
+      role: "CEO",
       image: house,
     },
     {
-      price: "$5,000,000",
-      description: "10 Units + 3 Bathrooms",
-      location: "17 Carvel Pl Sacramento Ca",
+      name: "Larry Simiyu",
+      role: "CEO",
       image: house,
     },
     {
-      price: "$5,000,000",
-      description: "10 Units + 3 Bathrooms",
-      location: "17 Carvel Pl Sacramento Ca",
+      name: "Larry Simiyu",
+      role: "CEO",
       image: house,
     },
     {
-      price: "$5,000,000",
-      description: "10 Units + 3 Bathrooms",
-      location: "17 Carvel Pl Sacramento Ca",
+      name: "Larry Simiyu",
+      role: "CEO",
       image: house,
     },
     {
-      price: "$5,000,000",
-      description: "10 Units + 3 Bathrooms",
-      location: "17 Carvel Pl Sacramento Ca",
+      name: "Larry Simiyu",
+      role: "CEO",
       image: house,
     },
   ];
@@ -88,13 +82,12 @@ const AdminPage = () => {
         <div className=" flex flex-wrap justify-between gap-10">
           {/* - upload property modal - show all properties - when property is
           clicked open edit modal */}
-          {properties.map((p) => {
+          {teamMembers.map((member) => {
             return (
               <>
-                <PropertyCard
-                  key={p.location}
-                  property={p}
-                  admin={true}
+                <TeamCard
+                  key={member.name}
+                  member={member}
                   setEditModalOpen={setEditModalOpen}
                   editModalOpen={editModalOpen}
                 />
@@ -107,4 +100,4 @@ const AdminPage = () => {
   );
 };
 
-export default AdminPage;
+export default TeamPage;

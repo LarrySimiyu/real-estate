@@ -29,7 +29,7 @@ const PropertyCard = ({ property, admin, setEditModalOpen, editModalOpen }) => {
         </div>
         {admin && (
           <div
-            className="border flex justify-end text-gray-500"
+            className=" flex justify-end text-gray-500"
             onClick={() => setEditModalOpen(true)}
           >
             {" "}
