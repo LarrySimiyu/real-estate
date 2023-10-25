@@ -11,7 +11,7 @@ const TeamCard = ({ member, setEditModalOpen, editModalOpen }) => {
         <EditTeamModal setEditModalOpen={setEditModalOpen} member={member} />
       )}
       <Image
-        src={image}
+        src={image.length === 0 ? house : image}
         alt="Header"
         className="h-[160px] w-[260px] rounded-md mb-2 "
       />

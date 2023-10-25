@@ -52,25 +52,15 @@ const AddTeamModal = ({ setAddModalOpen }) => {
         <div className="inline-block align-bottom bg-[#222222] rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full sm:p-6">
           <div className="sm:flex sm:items-start">
             <div className="mt-3  sm:mt-0  sm:text-left flex  w-full mb-3 justify-between">
-              {/* <div className="w-1/2">
+              <div className="w-1/2">
                 <h3 className="text-lg leading-6 font-medium" id="modal-title">
-                  {property.price}
+                  Add Team Member
                 </h3>
-                <div className="">
-                  <p className="text-sm ">{property.description}</p>
-                  <p className="text-sm ">{property.location}</p>
-                </div>
-              </div> */}
-
-              {/* <div className="border-red-300 justify-center items-center">
-                <button className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-2 py-2 bg-orange-500  font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm">
-                  Update Image
-                </button>
-              </div> */}
+              </div>
             </div>
           </div>
           <div className="flex flex-col">
-            <label className="block mb-2 text-md font-medium">Price</label>
+            <label className="block mb-2 text-md font-medium">Full Name</label>
             <input
               placeholder="Full Name"
               value={teamData.name}

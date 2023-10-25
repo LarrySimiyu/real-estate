@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
+import { db } from "@/firebase/config";
 
 import Link from "next/link";
 const EditTeamModal = ({ setEditModalOpen, member }) => {
   const [memberData, setMemberData] = useState({
     name: "",
     role: "",
-    image: "",
   });
 
   const handleInputChange = (e) => {
@@ -15,22 +15,20 @@ const EditTeamModal = ({ setEditModalOpen, member }) => {
     }));
   };
 
+  const memberRef = db.collection("team").doc(member.id);
+
   const handleUpdate = () => {
-    // userRef
-    //   .update({
-    //     firstName: userForm.firstName === "" ? firstName : userForm.firstName,
-    //     lastName: userForm.lastName === "" ? lastName : userForm.lastName,
-    //     userName: userForm.userName === "" ? userName : userForm.userName,
-    //   })
+    const { name, role, location } = member;
+    memberRef.update({
+      name: memberData.name === "" ? name : memberData.name,
+      role: memberData.role === "" ? role : memberData.role,
+    });
     setEditModalOpen(false);
   };
 
   const handleDelete = () => {
-    //TODO DELETE PROPERTY
-  };
-
-  const handleSubmit = () => {
-    // create new proprty
+    memberRef.delete();
+    setEditModalOpen(false);
   };
 
   return (
@@ -64,11 +62,11 @@ const EditTeamModal = ({ setEditModalOpen, member }) => {
                 </div>
               </div>
 
-              <div className="border-red-300 justify-center items-center">
+              {/* <div className="border-red-300 justify-center items-center">
                 <button className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-2 py-2 bg-orange-500  font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm">
                   Update Image
                 </button>
-              </div>
+              </div> */}
             </div>
           </div>
           <div className="flex flex-col">
@@ -76,13 +74,13 @@ const EditTeamModal = ({ setEditModalOpen, member }) => {
             <input
               placeholder="Full Name"
               value={memberData.name}
-              name="fullName"
+              name="name"
               onChange={(e) => handleInputChange(e)}
               className="mb-3 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             />
             <label className="block mb-2 text-md font-medium">Role</label>
             <input
-              placeholder="Description"
+              placeholder="Role"
               value={memberData.role}
               name="role"
               onChange={(e) => handleInputChange(e)}
@@ -91,14 +89,14 @@ const EditTeamModal = ({ setEditModalOpen, member }) => {
           </div>
           <div className="mt-5 sm:mt-4 sm:flex sm:flex-row justify-between">
             <button
-              onClick={() => setEditModalOpen(false)}
+              onClick={handleDelete}
               type="button"
               className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-400 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm"
             >
               Delete
             </button>
             <button
-              onClick={() => setEditModalOpen(false)}
+              onClick={handleUpdate}
               type="button"
               className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm"
             >

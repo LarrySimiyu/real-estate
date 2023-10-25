@@ -59,6 +59,7 @@ const AdminPage = () => {
   useEffect(() => {
     getProperties();
   }, []);
+
   return (
     <div className="flex min-h-screen flex-col items-center bg-black text-white md:px-20">
       {addPropertyModal && (

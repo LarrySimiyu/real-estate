@@ -5,15 +5,15 @@ import TeamCard from "@/components/TeamCard";
 import Link from "next/link";
 import house from "../../../assets/house.jpeg";
 import AddTeamModal from "@/components/AddTeamModal";
+
+import { db } from "@/firebase/config";
+
 const TeamPage = () => {
   const [addModalOpen, setAddModalOpen] = useState(false);
   const [editModalOpen, setEditModalOpen] = useState(false);
-  {
-    /* TODO: Create Add Property Page
-            TODO: Create Add Team Member Page
-            TODO: Import property item
-            TODO: ADD Edit property modal -> delete button, update options */
-  }
+  const [teamMembers, setTeamMembers] = useState([]);
+
+  const teamRef = db.collection("team");
 
   const handleSignOut = () => {
     // firebase sign out here
@@ -34,33 +34,20 @@ const TeamPage = () => {
     // },
   ];
 
-  const teamMembers = [
-    {
-      name: "Larry Simiyu",
-      role: "CEO",
-      image: house,
-    },
-    {
-      name: "Larry Simiyu",
-      role: "CEO",
-      image: house,
-    },
-    {
-      name: "Larry Simiyu",
-      role: "CEO",
-      image: house,
-    },
-    {
-      name: "Larry Simiyu",
-      role: "CEO",
-      image: house,
-    },
-    {
-      name: "Larry Simiyu",
-      role: "CEO",
-      image: house,
-    },
-  ];
+  const getTeamMembers = () => {
+    teamRef.onSnapshot((snapshot) => {
+      let teamData = snapshot.docs.map((doc) => {
+        const data = doc.data();
+        const id = doc.id;
+        return { id, ...data };
+      });
+      setTeamMembers(teamData);
+    });
+  };
+
+  useEffect(() => {
+    getTeamMembers();
+  }, []);
   return (
     <div className="flex min-h-screen flex-col items-center bg-black text-white md:px-20">
       {addModalOpen && <AddTeamModal setAddModalOpen={setAddModalOpen} />}
@@ -81,25 +68,28 @@ const TeamPage = () => {
           className=" flex justify-end"
           onClick={() => setAddModalOpen(true)}
         >
-          Add Team
+          Add Team Member
         </div>
-
-        <div className=" flex flex-wrap justify-between gap-10">
-          {/* - upload property modal - show all properties - when property is
+        {teamMembers.length === 0 ? (
+          <div>No Team Members Added</div>
+        ) : (
+          <div className=" flex flex-wrap justify-between gap-10">
+            {/* - upload property modal - show all properties - when property is
           clicked open edit modal */}
-          {teamMembers.map((member) => {
-            return (
-              <>
-                <TeamCard
-                  key={member.name}
-                  member={member}
-                  setEditModalOpen={setEditModalOpen}
-                  editModalOpen={editModalOpen}
-                />
-              </>
-            );
-          })}
-        </div>
+            {teamMembers.map((member) => {
+              return (
+                <>
+                  <TeamCard
+                    key={member.name}
+                    member={member}
+                    setEditModalOpen={setEditModalOpen}
+                    editModalOpen={editModalOpen}
+                  />
+                </>
+              );
+            })}
+          </div>
+        )}
       </div>
     </div>
   );
