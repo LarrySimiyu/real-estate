@@ -1,16 +1,19 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { auth } from "../../firebase/config";
+import { auth, db, uid } from "../../firebase/config";
 import { useRouter } from "next/navigation";
 
 import PropertyCard from "@/components/PropertyCard";
 import Link from "next/link";
 import house from "../../../assets/house.jpeg";
 import EditPropertyModal from "@/components/EditPropertyModal";
+import AddPropertyModal from "@/components/AddPropertyModal";
+
 import TeamCard from "@/components/TeamCard";
 
 const AdminPage = () => {
   const [addModalOpen, setAddModalOpen] = useState(false);
+  const [addPropertyModal, setAddPropertyModal] = useState(false);
   const [editModalOpen, setEditModalOpen] = useState(false);
   {
     /* TODO: Create Add Property Page
@@ -24,7 +27,6 @@ const AdminPage = () => {
     // firebase sign out here
     auth.signOut().then(() => router.push("/"));
   };
-
   const navLinks = [
     {
       name: "Properties",
@@ -74,6 +76,9 @@ const AdminPage = () => {
   ];
   return (
     <div className="flex min-h-screen flex-col items-center bg-black text-white md:px-20">
+      {addPropertyModal && (
+        <AddPropertyModal setAddPropertyModal={setAddPropertyModal} />
+      )}
       <div className="max-w-[1366px] w-full">
         <div className=" z-10 w-full items-center justify-between text-sm lg:flex md:h-[70px]">
           <div className="font-bold text-[60px]">PRI.</div>
@@ -91,7 +96,13 @@ const AdminPage = () => {
             })}
           </div>
         </div>
-        <div className=" flex justify-end ">Add Property</div>
+        <div
+          className=" flex justify-end"
+          onClick={() => setAddPropertyModal(true)}
+        >
+          Add Property
+        </div>
+        <button>Add Image </button>
 
         <div className=" flex flex-wrap justify-between gap-10">
           {/* - upload property modal - show all properties - when property is

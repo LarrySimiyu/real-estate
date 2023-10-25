@@ -1,6 +1,7 @@
 //
 
 import firebase from "firebase/compat/app";
+import { getStorage } from "firebase/storage";
 import "firebase/compat/auth";
 import "firebase/compat/firestore";
 
@@ -21,7 +22,8 @@ if (!firebase.apps.length) {
 const db = firebase.firestore();
 
 const auth = firebase.auth();
-console.log("hello");
+const storage = getStorage();
+
 let uid;
 auth.onAuthStateChanged((user) => {
   if (user) {
@@ -29,4 +31,4 @@ auth.onAuthStateChanged((user) => {
   }
 });
 
-export { db, auth, uid };
+export { db, auth, uid, storage };
