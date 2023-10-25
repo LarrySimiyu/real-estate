@@ -2,6 +2,8 @@ import Image from "next/image";
 import { ArrowRight } from "react-feather";
 import Link from "next/link";
 import ProperyCard from "@/components/PropertyCard";
+import Navigation from "@/components/Navigation";
+
 export default function Home() {
   const info = [
     {
@@ -18,14 +20,15 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center bg-black text-white md:px-20">
       <div className="max-w-[1366px] w-full">
-        <div className=" z-10 w-full items-center justify-between text-sm lg:flex md:h-[70px] border">
+        {/* <div className=" z-10 w-full items-center justify-between text-sm lg:flex md:h-[70px] border">
           <div className="font-bold text-[60px]">PRI.</div>
           <div className="border w-1/3 flex justify-between">
             <Link href="/properties">Properties</Link>
 
             <Link href="/adminPage">Admin</Link>
           </div>
-        </div>
+        </div> */}
+        <Navigation role={"user"} />
         <div className=" w-full h-[100vh] ">
           <div className=" md:w-3/4 md:h-full flex flex-col justify-center">
             <div className="md:text-[100px] md:w-[80%] font-bold mb-8 leading-[1] ">

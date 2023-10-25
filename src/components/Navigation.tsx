@@ -6,6 +6,10 @@ const Navigation = ({ role }) => {
     auth.signOut().then(() => router.push("/"));
   };
 
+  const handleContact = () => {
+    // TODO: Handle contact
+  };
+
   const adminNavLinks = [
     {
       name: "Home",
@@ -18,6 +22,17 @@ const Navigation = ({ role }) => {
     {
       name: "Sign Out",
       signOut: () => handleSignOut(),
+    },
+  ];
+
+  const navLinks = [
+    {
+      name: "Properties",
+      route: "/properties",
+    },
+    {
+      name: "Contact",
+      contact: handleContact(),
     },
   ];
   if (!role) {
@@ -45,7 +60,28 @@ const Navigation = ({ role }) => {
     );
   }
   {
-    return <div>something</div>;
+    return (
+      <div className=" z-10 w-full items-center justify-between text-sm lg:flex md:h-[70px] leading-[70px]">
+        <div className="font-bold text-[60px]">PRI.</div>
+        <div className="w-1/3 flex justify-end border">
+          {navLinks.map((link) => {
+            return link.name === "Contact" ? (
+              <button
+                key={link.name}
+                onClick={link.signOut}
+                className="font-bold hover:underline"
+              >
+                Contact
+              </button>
+            ) : (
+              <Link href={link.route} key={link.name} className="mr-5">
+                {link.name}
+              </Link>
+            );
+          })}
+        </div>
+      </div>
+    );
   }
 };
 
