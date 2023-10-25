@@ -40,7 +40,7 @@ const Navigation = ({ role }) => {
   ];
   if (!role) {
     return (
-      <div className=" z-10 w-full items-center justify-between text-sm lg:flex md:h-[70px] border leading-[70px]">
+      <div className=" z-10 w-full items-center justify-between text-sm lg:flex md:h-[70px] border leading-[70px] ">
         <div
           className="font-bold text-[60px] border"
           onClick={() => router.push("/")}
@@ -69,11 +69,11 @@ const Navigation = ({ role }) => {
   }
   {
     return (
-      <div className=" z-10 w-full items-center justify-between text-sm lg:flex md:h-[70px] leading-[70px]">
+      <div className="z-10 w-full items-center justify-between text-sm flex md:h-[70px] leading-[70px] mb-5 md:mb-0">
         <div className="font-bold text-[60px]" onClick={() => router.push("/")}>
           PRI.
         </div>
-        <div className="w-1/3 flex justify-end">
+        <div className="w-1/3 flex justify-end mr-4 md:mr-0">
           {navLinks.map((link) => {
             return link.name === "Contact" ? (
               <button
