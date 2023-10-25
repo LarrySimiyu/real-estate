@@ -1,6 +1,8 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { db, uid } from "@/firebase/config";
+import { signUp, login } from "../../firebase/auth";
+import { useRouter } from "next/navigation";
 
 const AuthenticationPage = () => {
   const [loginData, setLoginData] = useState({
@@ -15,8 +17,31 @@ const AuthenticationPage = () => {
 
   const [showSignUp, setShowSignUp] = useState(false);
 
-  const submitLogin = () => {};
-  const submitSignUp = () => {};
+  const router = useRouter();
+
+  const submitLogin = async (e) => {
+    e.preventDefault();
+
+    const { email, password } = loginData;
+    const { result, error } = await login(email, password);
+    if (error) {
+      return console.log(error);
+    } else {
+      return router.push("/adminPage");
+    }
+  };
+  const submitSignUp = async (e) => {
+    e.preventDefault();
+
+    const { result, error } = await signUp(
+      signUpData.email,
+      signUpData.password
+    );
+    if (error) {
+      return console.log(error);
+    }
+    return router.push("/adminPage");
+  };
 
   const handleLoginInput = (e) => {
     setLoginData({ ...loginData, [e.target.name]: e.target.value });
@@ -24,8 +49,6 @@ const AuthenticationPage = () => {
   const handleSignUpInput = (e) => {
     setSignUpData({ ...signUpData, [e.target.name]: e.target.value });
   };
-
-  console.log(loginData);
 
   return (
     <div>

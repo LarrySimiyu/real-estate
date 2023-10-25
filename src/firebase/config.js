@@ -21,7 +21,7 @@ if (!firebase.apps.length) {
 const db = firebase.firestore();
 
 const auth = firebase.auth();
-
+console.log("hello");
 let uid;
 auth.onAuthStateChanged((user) => {
   if (user) {

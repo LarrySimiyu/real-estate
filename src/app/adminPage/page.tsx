@@ -1,5 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
+import { auth } from "../../firebase/config";
+import { useRouter } from "next/navigation";
 
 import PropertyCard from "@/components/PropertyCard";
 import Link from "next/link";
@@ -16,9 +18,11 @@ const AdminPage = () => {
             TODO: Import property item
             TODO: ADD Edit property modal -> delete button, update options */
   }
+  const router = useRouter();
 
   const handleSignOut = () => {
     // firebase sign out here
+    auth.signOut().then(() => router.push("/"));
   };
 
   const navLinks = [
@@ -30,10 +34,10 @@ const AdminPage = () => {
       name: "Team",
       route: "/team",
     },
-    // {
-    //   name: "Sign Out",
-    //   route: () => handleSignOut(),
-    // },
+    {
+      name: "Sign Out",
+      signOut: () => handleSignOut(),
+    },
   ];
 
   const properties = [
@@ -75,7 +79,11 @@ const AdminPage = () => {
           <div className="font-bold text-[60px]">PRI.</div>
           <div className="border w-1/3 flex justify-between">
             {navLinks.map((link) => {
-              return (
+              return link.name === "Sign Out" ? (
+                <button key={link.name} onClick={link.signOut}>
+                  Sign Out
+                </button>
+              ) : (
                 <Link href={link.route} key={link.name}>
                   {link.name}
                 </Link>
