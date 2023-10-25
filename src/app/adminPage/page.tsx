@@ -87,24 +87,25 @@ const AdminPage = () => {
         >
           Add Property
         </div>
-
-        <div className=" flex flex-wrap justify-between gap-10">
-          {/* - upload property modal - show all properties - when property is
-          clicked open edit modal */}
-          {properties.map((p) => {
-            return (
-              <>
-                <PropertyCard
-                  key={p.location}
-                  property={p}
-                  admin={true}
-                  setEditModalOpen={setEditModalOpen}
-                  editModalOpen={editModalOpen}
-                />
-              </>
-            );
-          })}
-        </div>
+        {properties.length === 0 ? (
+          <div>No Properties Added</div>
+        ) : (
+          <div className=" flex flex-wrap justify-between gap-10">
+            {properties.map((p) => {
+              return (
+                <>
+                  <PropertyCard
+                    key={p.location}
+                    property={p}
+                    admin={true}
+                    setEditModalOpen={setEditModalOpen}
+                    editModalOpen={editModalOpen}
+                  />
+                </>
+              );
+            })}
+          </div>
+        )}
       </div>
     </div>
   );
