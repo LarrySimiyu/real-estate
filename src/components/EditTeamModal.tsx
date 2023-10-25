@@ -52,7 +52,12 @@ const EditTeamModal = ({ setEditModalOpen, member }) => {
         </span>
         <div className="inline-block align-bottom bg-[#222222] rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full sm:p-6">
           <div className="sm:flex sm:items-start">
-            <div className="mt-3  sm:mt-0  sm:text-left flex  w-full mb-3 justify-between">
+            <div className="mt-3  sm:mt-0  sm:text-left flex flex-col w-full mb-3 justify-between">
+              <div className="w-1/2 mb-3">
+                <h3 className="text-lg leading-6 font-medium" id="modal-title">
+                  Edit Property
+                </h3>
+              </div>
               <div className="w-1/2">
                 <h3 className="text-lg leading-6 font-medium" id="modal-title">
                   {member.name}
@@ -88,6 +93,13 @@ const EditTeamModal = ({ setEditModalOpen, member }) => {
             />
           </div>
           <div className="mt-5 sm:mt-4 sm:flex sm:flex-row justify-between">
+            <button
+              onClick={() => setEditModalOpen(false)}
+              type="button"
+              className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-gray-400 text-base font-medium text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm"
+            >
+              Close
+            </button>
             <button
               onClick={handleDelete}
               type="button"
