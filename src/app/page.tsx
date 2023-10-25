@@ -14,7 +14,7 @@ export default function Home() {
   const router = useRouter();
 
   const getProperties = () => {
-    propertiesRef.limit(3).onSnapshot((snapshot) => {
+    propertiesRef.limit(4).onSnapshot((snapshot) => {
       let properties = snapshot.docs.map((doc) => {
         let data = doc.data();
         let id = doc.id;
@@ -87,9 +87,11 @@ export default function Home() {
             </p>
           </div>
         </div>
-        <div className="md:h-[250px] w-full bg-white text-black flex  flex-col px-5 ">
-          <div className="font-semibold text-[45px] md:mb-8">Your Future</div>
-          <div className="flex  flex-col justify-between md:justify-around  items-center  ">
+        <div className="w-full bg-white text-black flex  flex-col px-5 ">
+          <div className="font-semibold text-[45px] md:mb-8  md:ml-28">
+            Your Future
+          </div>
+          <div className="flex  flex-col md:flex-row justify-between md:justify-around  items-center  ">
             {info.map((tab) => {
               return (
                 <div
@@ -109,9 +111,9 @@ export default function Home() {
           </div>
         </div>
         {properties.length > 0 && (
-          <div className="md:h-[250px] w-full bg-black text-white flex  flex-col px-5">
-            <div className="font-semibold text-[45px]  md:mb-8">Properties</div>
-            <div className=" flex flex-col md:flex-wrap items-center justify-between  gap-5 md:gap-10 my-5 ">
+          <div className="md:h-[250px] w-full bg-black text-white flex  flex-col px-5 md:mt-10">
+            <div className="font-semibold text-[45px]">Properties</div>
+            <div className=" flex flex-col md:flex-row items-center justify-start  gap-5 md:gap-10 my-5">
               {properties.map((p) => {
                 return (
                   <div
