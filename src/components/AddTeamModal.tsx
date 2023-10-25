@@ -1,19 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { db, uid } from "../firebase/config";
 
-import Link from "next/link";
-const AddPropertyModal = ({ setAddPropertyModal }) => {
-  const [propertyData, setPropertyData] = useState({
-    price: "",
-    description: "",
-    location: "",
+const AddTeamModal = ({ setAddModalOpen }) => {
+  const [teamData, setTeamData] = useState({
+    name: "",
+    role: "",
     image: "",
   });
 
-  const propertiesRef = db.collection("properties");
+  const teamRef = db.collection("team");
 
   const handleInputChange = (e) => {
-    setPropertyData((prevState) => ({
+    setTeamData((prevState) => ({
       ...prevState,
       [e.target.name]: e.target.value,
     }));
@@ -21,17 +19,16 @@ const AddPropertyModal = ({ setAddPropertyModal }) => {
 
   const handleSubmit = () => {
     // create new proprty
-    const { price, description, location, image } = propertyData;
-    propertiesRef.add({
-      price,
-      description,
-      location,
+    const { name, role, image } = teamData;
+    teamRef.add({
+      name,
+      role,
       image,
     });
-    setAddPropertyModal(false);
+    setAddModalOpen(false);
   };
 
-  console.log(propertyData);
+  console.log(teamData);
 
   return (
     <div
@@ -75,9 +72,9 @@ const AddPropertyModal = ({ setAddPropertyModal }) => {
           <div className="flex flex-col">
             <label className="block mb-2 text-md font-medium">Price</label>
             <input
-              placeholder="Price"
-              value={propertyData.price}
-              name="price"
+              placeholder="Full Name"
+              value={teamData.name}
+              name="name"
               onChange={(e) => handleInputChange(e)}
               className="mb-3 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             />
@@ -85,24 +82,16 @@ const AddPropertyModal = ({ setAddPropertyModal }) => {
               Description
             </label>
             <input
-              placeholder="Description"
-              value={propertyData.description}
-              name="description"
-              onChange={(e) => handleInputChange(e)}
-              className="mb-3 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            />
-            <label className="block mb-2 text-md font-medium">Location</label>
-            <input
-              placeholder="Location"
-              value={propertyData.location}
-              name="location"
+              placeholder="Role"
+              value={teamData.role}
+              name="role"
               onChange={(e) => handleInputChange(e)}
               className="mb-3 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             />
           </div>
           <div className="mt-5 sm:mt-4 sm:flex sm:flex-row justify-between">
             <button
-              onClick={() => setAddPropertyModal(false)}
+              onClick={() => setAddModalOpen(false)}
               type="button"
               className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-gray-600 text-base font-medium text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm"
             >
@@ -113,7 +102,7 @@ const AddPropertyModal = ({ setAddPropertyModal }) => {
               type="button"
               className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm"
             >
-              Upload
+              Submit
             </button>
           </div>
         </div>
@@ -121,4 +110,4 @@ const AddPropertyModal = ({ setAddPropertyModal }) => {
     </div>
   );
 };
-export default AddPropertyModal;
+export default AddTeamModal;

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { db } from "@/firebase/config";
 
 import Link from "next/link";
 const EditPropertyModal = ({ setEditModalOpen, property }) => {
@@ -6,8 +7,9 @@ const EditPropertyModal = ({ setEditModalOpen, property }) => {
     price: "",
     description: "",
     location: "",
-    image: "",
   });
+
+  const propertyRef = db.collection("properties").doc(property.id);
 
   const handleInputChange = (e) => {
     setPropertyData((prevState) => ({
@@ -17,24 +19,23 @@ const EditPropertyModal = ({ setEditModalOpen, property }) => {
   };
 
   const handleUpdate = () => {
-    // userRef
-    //   .update({
-    //     firstName: userForm.firstName === "" ? firstName : userForm.firstName,
-    //     lastName: userForm.lastName === "" ? lastName : userForm.lastName,
-    //     userName: userForm.userName === "" ? userName : userForm.userName,
-    //   })
+    const { price, description, location } = property;
+    propertyRef.update({
+      price: propertyData.price === "" ? price : propertyData.price,
+      description:
+        propertyData.description === ""
+          ? description
+          : propertyData.description,
+      location: propertyData.location === "" ? location : propertyData.location,
+    });
     setEditModalOpen(false);
   };
 
   const handleDelete = () => {
     //TODO DELETE PROPERTY
+    propertyRef.delete();
+    setEditModalOpen(false);
   };
-
-  const handleSubmit = () => {
-    // create new proprty
-  };
-
-  console.log(propertyData);
 
   return (
     <div
@@ -105,14 +106,14 @@ const EditPropertyModal = ({ setEditModalOpen, property }) => {
           </div>
           <div className="mt-5 sm:mt-4 sm:flex sm:flex-row justify-between">
             <button
-              onClick={() => setEditModalOpen(false)}
+              onClick={handleDelete}
               type="button"
               className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-400 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm"
             >
               Delete
             </button>
             <button
-              onClick={() => setEditModalOpen(false)}
+              onClick={handleUpdate}
               type="button"
               className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm"
             >

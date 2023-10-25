@@ -12,9 +12,9 @@ import AddPropertyModal from "@/components/AddPropertyModal";
 import TeamCard from "@/components/TeamCard";
 
 const AdminPage = () => {
-  const [addModalOpen, setAddModalOpen] = useState(false);
   const [addPropertyModal, setAddPropertyModal] = useState(false);
   const [editModalOpen, setEditModalOpen] = useState(false);
+  const [properties, setProperties] = useState([]);
   {
     /* TODO: Create Add Property Page
             TODO: Create Add Team Member Page
@@ -22,6 +22,8 @@ const AdminPage = () => {
             TODO: ADD Edit property modal -> delete button, update options */
   }
   const router = useRouter();
+
+  const propertiesRef = db.collection("properties");
 
   const handleSignOut = () => {
     // firebase sign out here
@@ -42,38 +44,21 @@ const AdminPage = () => {
     },
   ];
 
-  const properties = [
-    {
-      price: "$5,000,000",
-      description: "10 Units + 3 Bathrooms",
-      location: "17 Carvel Pl Sacramento Ca",
-      image: house,
-    },
-    {
-      price: "$5,000,000",
-      description: "10 Units + 3 Bathrooms",
-      location: "17 Carvel Pl Sacramento Ca",
-      image: house,
-    },
-    {
-      price: "$5,000,000",
-      description: "10 Units + 3 Bathrooms",
-      location: "17 Carvel Pl Sacramento Ca",
-      image: house,
-    },
-    {
-      price: "$5,000,000",
-      description: "10 Units + 3 Bathrooms",
-      location: "17 Carvel Pl Sacramento Ca",
-      image: house,
-    },
-    {
-      price: "$5,000,000",
-      description: "10 Units + 3 Bathrooms",
-      location: "17 Carvel Pl Sacramento Ca",
-      image: house,
-    },
-  ];
+  const getProperties = () => {
+    propertiesRef.onSnapshot((snapshot) => {
+      let properties = snapshot.docs.map((doc) => {
+        let data = doc.data();
+        let id = doc.id;
+        return { id, ...data };
+      });
+
+      setProperties(properties);
+    });
+  };
+
+  useEffect(() => {
+    getProperties();
+  }, []);
   return (
     <div className="flex min-h-screen flex-col items-center bg-black text-white md:px-20">
       {addPropertyModal && (

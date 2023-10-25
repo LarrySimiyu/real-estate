@@ -4,8 +4,7 @@ import React, { useState, useEffect } from "react";
 import TeamCard from "@/components/TeamCard";
 import Link from "next/link";
 import house from "../../../assets/house.jpeg";
-import EditPropertyModal from "@/components/EditPropertyModal";
-
+import AddTeamModal from "@/components/AddTeamModal";
 const TeamPage = () => {
   const [addModalOpen, setAddModalOpen] = useState(false);
   const [editModalOpen, setEditModalOpen] = useState(false);
@@ -64,6 +63,7 @@ const TeamPage = () => {
   ];
   return (
     <div className="flex min-h-screen flex-col items-center bg-black text-white md:px-20">
+      {addModalOpen && <AddTeamModal setAddModalOpen={setAddModalOpen} />}
       <div className="max-w-[1366px] w-full">
         <div className=" z-10 w-full items-center justify-between text-sm lg:flex md:h-[70px]">
           <div className="font-bold text-[60px]">PRI.</div>
@@ -77,7 +77,12 @@ const TeamPage = () => {
             })}
           </div>
         </div>
-        <div className=" flex justify-end ">Add Property</div>
+        <div
+          className=" flex justify-end"
+          onClick={() => setAddModalOpen(true)}
+        >
+          Add Team
+        </div>
 
         <div className=" flex flex-wrap justify-between gap-10">
           {/* - upload property modal - show all properties - when property is
