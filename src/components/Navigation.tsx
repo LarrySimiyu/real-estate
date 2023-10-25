@@ -69,7 +69,7 @@ const Navigation = ({ role }) => {
   }
   {
     return (
-      <div className="z-10 w-full items-center justify-between text-sm flex md:h-[70px] leading-[70px] mb-5 md:mb-0">
+      <div className="z-10 w-full items-center justify-between text-sm flex md:h-[70px] leading-[70px] mb-5 md:mb-0 px-5">
         <div className="font-bold text-[60px]" onClick={() => router.push("/")}>
           PRI.
         </div>

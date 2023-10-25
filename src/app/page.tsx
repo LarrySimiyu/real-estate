@@ -42,15 +42,15 @@ export default function Home() {
   ];
 
   return (
-    <main className="flex min-h-screen flex-col items-center bg-black text-white md:px-20">
+    <main className="flex min-h-screen flex-col items-center bg-black text-white  md:px-20">
       <div className="max-w-[1366px] w-full">
         <Navigation role={"user"} />
-        <div className=" w-full h-[70vh] md:h-[100vh] mb-10 md:mb-0">
-          <div className=" md:w-3/4 md:h-full flex flex-col justify-center">
-            <div className="text-[75px] md:text-[100px] md:w-[80%] font-bold mb-8 md:leading-[1] ">
-              Invest in real estate with PMI.
+        <div className=" w-full  md:h-[100vh] mb-10 md:mb-0 ">
+          <div className=" md:w-3/4 md:h-full flex flex-col md:justify-center">
+            <div className="text-[55px] md:text-[100px] md:w-[80%] font-bold mb-8 md:leading-[1] px-5">
+              Platinum Realty Investments
             </div>
-            <p className="text-[28px] md:text-[20px] w-full md:w-3/4">
+            <p className="text-[28px] md:text-[20px] w-full md:w-3/4 px-5">
               We are your trusted partner for real estate investment, wealth
               growth, passive income, and financial freedom.
             </p>
@@ -60,7 +60,7 @@ export default function Home() {
             </button> */}
           </div>
         </div>
-        <div className=" md:w-full md:flex md:h-[300px] mb-10">
+        <div className=" md:w-full md:flex md:h-[300px] mb-10 px-5">
           <div className=" md:w-[100%]">
             <h1 className="font-semibold text-[45px]">About Us</h1>
           </div>
@@ -73,7 +73,7 @@ export default function Home() {
             clients.
           </div>
         </div>
-        <div className="md:h-[550px] w-full bg-white text-black flex flex-col justify-center items-center ">
+        <div className="md:h-[550px] w-full bg-white text-black flex flex-col justify-center items-center px-5 ">
           <div className="flex flex-col  md:w-[80%]">
             <div className="font-semibold text-[45px]  md:mb-8">
               Our Mission
@@ -87,7 +87,7 @@ export default function Home() {
             </p>
           </div>
         </div>
-        <div className="md:h-[250px] w-full bg-white text-black flex  flex-col ">
+        <div className="md:h-[250px] w-full bg-white text-black flex  flex-col px-5 ">
           <div className="font-semibold text-[45px] md:mb-8">Your Future</div>
           <div className="flex  flex-col justify-between md:justify-around  items-center  ">
             {info.map((tab) => {
@@ -109,9 +109,9 @@ export default function Home() {
           </div>
         </div>
         {properties.length > 0 && (
-          <div className="md:h-[250px] w-full bg-black text-white flex  flex-col">
+          <div className="md:h-[250px] w-full bg-black text-white flex  flex-col px-5">
             <div className="font-semibold text-[45px]  md:mb-8">Properties</div>
-            <div className=" flex flex-col md:flex-wrap items-center justify-between  gap-5 md:gap-10 my-5 border border-red-500">
+            <div className=" flex flex-col md:flex-wrap items-center justify-between  gap-5 md:gap-10 my-5 ">
               {properties.map((p) => {
                 return (
                   <div
