@@ -27,8 +27,8 @@ const Properties = () => {
   }, []);
 
   return (
-    <div className="flex min-h-screen flex-col items-center bg-black text-white md:px-20">
-      <div className="max-w-[1366px] w-full">
+    <div className="flex min-h-screen flex-col items-center bg-black text-white md:px-20 ">
+      <div className="max-w-[1366px] w-full ">
         <Navigation role={"user"} />
 
         {properties.length === 0 ? (

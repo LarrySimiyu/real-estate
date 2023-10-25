@@ -1,6 +1,9 @@
+"use client";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { auth } from "@/firebase/config";
 const Navigation = ({ role }) => {
+  const router = useRouter();
   const handleSignOut = () => {
     // firebase sign out here
     auth.signOut().then(() => router.push("/"));
@@ -38,7 +41,12 @@ const Navigation = ({ role }) => {
   if (!role) {
     return (
       <div className=" z-10 w-full items-center justify-between text-sm lg:flex md:h-[70px] border leading-[70px]">
-        <div className="font-bold text-[60px] border">PRI.</div>
+        <div
+          className="font-bold text-[60px] border"
+          onClick={() => router.push("/")}
+        >
+          PRI.
+        </div>
         <div className="w-1/3 flex justify-between">
           {adminNavLinks.map((link) => {
             return link.name === "Sign Out" ? (
@@ -62,7 +70,9 @@ const Navigation = ({ role }) => {
   {
     return (
       <div className=" z-10 w-full items-center justify-between text-sm lg:flex md:h-[70px] leading-[70px]">
-        <div className="font-bold text-[60px]">PRI.</div>
+        <div className="font-bold text-[60px]" onClick={() => router.push("/")}>
+          PRI.
+        </div>
         <div className="w-1/3 flex justify-end">
           {navLinks.map((link) => {
             return link.name === "Contact" ? (
