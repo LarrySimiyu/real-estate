@@ -63,7 +63,7 @@ const Navigation = ({ role }) => {
     return (
       <div className=" z-10 w-full items-center justify-between text-sm lg:flex md:h-[70px] leading-[70px]">
         <div className="font-bold text-[60px]">PRI.</div>
-        <div className="w-1/3 flex justify-end border">
+        <div className="w-1/3 flex justify-end">
           {navLinks.map((link) => {
             return link.name === "Contact" ? (
               <button
