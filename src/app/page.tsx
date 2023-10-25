@@ -88,19 +88,19 @@ export default function Home() {
           </div>
         </div>
         <div className="md:h-[250px] w-full bg-white text-black flex  flex-col  md:px-10">
-          {/* <div className="md:text-[30px]  font-bold mb-8 leading-[1] ">
-          Creation of investment opportunities
-        </div> */}
-          <div className="flex md:justify-around  items-center">
+          <div className="font-semibold text-[45px] md:mb-8">Your Future</div>
+          <div className="flex  flex-col justify-between md:justify-around  items-center  ">
             {info.map((tab) => {
               return (
                 <div
                   key={tab.title}
-                  className="text-black bg-gray-100 rounded-md md:w-1/3 h-full flex flex-col p-5
+                  className="text-black bg-[#FF754C] rounded-md mb-4 md:w-1/3 h-full flex flex-col p-5
               "
                 >
-                  <div className="font-bold text-[30px]">{tab.title}</div>
-                  <p className="text-[14px] text-gray-400 leading-5">
+                  <div className="font-bold text-[30px] text-white">
+                    {tab.title}
+                  </div>
+                  <p className="text-[14px] text-white leading-5">
                     {tab.description}
                   </p>
                 </div>
