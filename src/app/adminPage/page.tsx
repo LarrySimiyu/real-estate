@@ -10,6 +10,7 @@ import EditPropertyModal from "@/components/EditPropertyModal";
 import AddPropertyModal from "@/components/AddPropertyModal";
 
 import TeamCard from "@/components/TeamCard";
+import Navigation from "@/components/Navigation";
 
 const AdminPage = () => {
   const [addPropertyModal, setAddPropertyModal] = useState(false);
@@ -66,22 +67,7 @@ const AdminPage = () => {
         <AddPropertyModal setAddPropertyModal={setAddPropertyModal} />
       )}
       <div className="max-w-[1366px] w-full">
-        <div className=" z-10 w-full items-center justify-between text-sm lg:flex md:h-[70px]">
-          <div className="font-bold text-[60px]">PRI.</div>
-          <div className="border w-1/3 flex justify-between">
-            {navLinks.map((link) => {
-              return link.name === "Sign Out" ? (
-                <button key={link.name} onClick={link.signOut}>
-                  Sign Out
-                </button>
-              ) : (
-                <Link href={link.route} key={link.name}>
-                  {link.name}
-                </Link>
-              );
-            })}
-          </div>
-        </div>
+        <Navigation />
         <div
           className=" flex justify-end"
           onClick={() => setAddPropertyModal(true)}
