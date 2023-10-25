@@ -22,7 +22,7 @@ const PropertyCard = ({ property, admin, setEditModalOpen, editModalOpen }) => {
       <div className=" w-[260px] ">
         <div className="font-bold text-[25px] flex items-center justify-between ">
           {price}
-          <span className="text-gray-500 text-[12px]">+ Buyer Fee</span>
+          <span className=" text-[12px]">+ Buyer Fee</span>
         </div>
         <div>
           <div className="font-bold">{description}</div>

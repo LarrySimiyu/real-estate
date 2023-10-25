@@ -1,10 +1,33 @@
+"use client";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { ArrowRight } from "react-feather";
 import Link from "next/link";
-import ProperyCard from "@/components/PropertyCard";
+import PropertyCard from "@/components/PropertyCard";
 import Navigation from "@/components/Navigation";
+import { db } from "@/firebase/config";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
+  const [properties, setProperties] = useState([]);
+  const propertiesRef = db.collection("properties");
+  const router = useRouter();
+
+  const getProperties = () => {
+    propertiesRef.limit(3).onSnapshot((snapshot) => {
+      let properties = snapshot.docs.map((doc) => {
+        let data = doc.data();
+        let id = doc.id;
+        return { id, ...data };
+      });
+
+      setProperties(properties);
+    });
+  };
+
+  useEffect(() => {
+    getProperties();
+  }, []);
   const info = [
     {
       title: "Property Acquisition",
@@ -17,17 +40,10 @@ export default function Home() {
         "We understand the significance of securing your financial future. We offer tailored life insurance policies exclusively for real estate investors, providing comprehensive coverage and peace of mind. Safeguard your assets and ensure stability for your loved ones with our personalized solutions.",
     },
   ];
+
   return (
     <main className="flex min-h-screen flex-col items-center bg-black text-white md:px-20">
       <div className="max-w-[1366px] w-full">
-        {/* <div className=" z-10 w-full items-center justify-between text-sm lg:flex md:h-[70px] border">
-          <div className="font-bold text-[60px]">PRI.</div>
-          <div className="border w-1/3 flex justify-between">
-            <Link href="/properties">Properties</Link>
-
-            <Link href="/adminPage">Admin</Link>
-          </div>
-        </div> */}
         <Navigation role={"user"} />
         <div className=" w-full h-[100vh] ">
           <div className=" md:w-3/4 md:h-full flex flex-col justify-center">
@@ -90,11 +106,14 @@ export default function Home() {
             })}
           </div>
         </div>
-        <div className="md:h-[400px] w-full bg-black text-black flex  flex-col  md:px-10 border border-red-500">
-          {/* <div className="md:text-[30px]  font-bold mb-8 leading-[1] ">
-          Creation of investment opportunities
-        </div> */}
-          <div className="flex md:justify-around  items-center"></div>
+        <div className=" flex flex-wrap justify-between gap-10 my-5">
+          {properties.map((p) => {
+            return (
+              <div onClick={() => router.push("/properties")} key={p.location}>
+                <PropertyCard property={p} admin={false} />
+              </div>
+            );
+          })}
         </div>
       </div>
     </main>
