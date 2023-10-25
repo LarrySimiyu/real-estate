@@ -62,9 +62,9 @@ export default function Home() {
         </div>
         <div className=" md:w-full md:flex md:h-[300px] mb-10">
           <div className=" md:w-[100%]">
-            <h1 className="font-semibold text-[24px]">About</h1>
+            <h1 className="font-semibold text-[45px]">About Us</h1>
           </div>
-          <div className="text-[24px] md:text-[30px] pr-20">
+          <div className="text-[24px] md:text-[30px]">
             Platinum Realty Investments is a premier real estate acquisition
             group dedicated to maximizing the potential of every investment
             opportunity. With a proven track record of success, we specialize in
@@ -74,12 +74,14 @@ export default function Home() {
           </div>
         </div>
         <div className="md:h-[550px] w-full bg-white text-black flex flex-col justify-center items-center ">
-          <div className="flex flex-col  w-[80%]">
-            <div className="font-semibold text-[24px] mb-8">Our Mission</div>
-            <div className="md:text-[80px] md:w-[50%] font-bold mb-8 leading-[1] ">
+          <div className="flex flex-col  md:w-[80%]">
+            <div className="font-semibold text-[45px]  md:mb-8">
+              Our Mission
+            </div>
+            <div className="md:text-[80px] md:w-[50%] font-bold md:mb-8 mb-4 leading-[1] ">
               Creation of investment opportunities
             </div>
-            <p className="text-[20px] w-1/2  ">
+            <p className="text-[24px] md:w-1/2 ">
               Empowering wealth creation through diverse investment
               opportunities for long-term financial success.
             </p>
