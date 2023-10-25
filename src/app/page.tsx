@@ -87,7 +87,7 @@ export default function Home() {
             </p>
           </div>
         </div>
-        <div className="md:h-[250px] w-full bg-white text-black flex  flex-col  md:px-10">
+        <div className="md:h-[250px] w-full bg-white text-black flex  flex-col ">
           <div className="font-semibold text-[45px] md:mb-8">Your Future</div>
           <div className="flex  flex-col justify-between md:justify-around  items-center  ">
             {info.map((tab) => {
@@ -108,15 +108,23 @@ export default function Home() {
             })}
           </div>
         </div>
-        <div className=" flex flex-wrap justify-between gap-10 my-5">
-          {properties.map((p) => {
-            return (
-              <div onClick={() => router.push("/properties")} key={p.location}>
-                <PropertyCard property={p} admin={false} />
-              </div>
-            );
-          })}
-        </div>
+        {properties.length > 0 && (
+          <div className="md:h-[250px] w-full bg-black text-white flex  flex-col">
+            <div className="font-semibold text-[45px]  md:mb-8">Properties</div>
+            <div className=" flex flex-col md:flex-wrap items-center justify-between  gap-5 md:gap-10 my-5 border border-red-500">
+              {properties.map((p) => {
+                return (
+                  <div
+                    onClick={() => router.push("/properties")}
+                    key={p.location}
+                  >
+                    <PropertyCard property={p} admin={false} />
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        )}
       </div>
     </main>
   );
