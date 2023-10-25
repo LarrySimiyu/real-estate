@@ -87,7 +87,6 @@ const AdminPage = () => {
         >
           Add Property
         </div>
-        <button>Add Image </button>
 
         <div className=" flex flex-wrap justify-between gap-10">
           {/* - upload property modal - show all properties - when property is
