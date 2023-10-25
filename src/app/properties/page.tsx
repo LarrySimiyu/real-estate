@@ -34,14 +34,17 @@ const Properties = () => {
         {properties.length === 0 ? (
           <div>No Properties</div>
         ) : (
-          <div className=" flex flex-wrap justify-between gap-10">
-            {properties.map((p) => {
-              return (
-                <>
-                  <PropertyCard key={p.location} property={p} admin={false} />
-                </>
-              );
-            })}
+          <div className="w-full bg-black text-white flex  flex-col px-5">
+            <div className="font-semibold text-[45px]  md:mb-8">Properties</div>
+            <div className=" flex flex-col md:flex-wrap items-center justify-between  gap-5 md:gap-10 my-5 ">
+              {properties.map((p) => {
+                return (
+                  <>
+                    <PropertyCard key={p.location} property={p} admin={false} />
+                  </>
+                );
+              })}
+            </div>
           </div>
         )}
       </div>
