@@ -65,7 +65,7 @@ const AddPropertyModal = ({ setAddPropertyModal }) => {
           <div className="flex flex-col">
             <label className="block mb-2 text-md font-medium">Price</label>
             <input
-              placeholder="Price"
+              placeholder="$5,000,000 "
               value={propertyData.price}
               name="price"
               onChange={(e) => handleInputChange(e)}
