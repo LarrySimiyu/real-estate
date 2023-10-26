@@ -2,6 +2,9 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { auth } from "@/firebase/config";
+import Image from "next/image";
+import logo from "../../assets/logo.png";
+
 const Navigation = ({ role }) => {
   const router = useRouter();
   const handleSignOut = () => {
@@ -51,6 +54,7 @@ const Navigation = ({ role }) => {
         >
           PRI.
         </div>
+        <Image src={logo} alt="Platinum Realty Company Logo" />
         <div className="w-1/3 flex justify-between">
           {adminNavLinks.map((link) => {
             return link.name === "Sign Out" ? (
@@ -73,10 +77,21 @@ const Navigation = ({ role }) => {
   }
   {
     return (
-      <div className="z-10 w-full items-center justify-between text-sm flex md:h-[70px] leading-[70px] mb-5 md:mb-0 px-5">
-        <div className="font-bold text-[60px]" onClick={() => router.push("/")}>
+      <div className="z-10 w-full items-center justify-between text-sm flex md:h-[100px] leading-[70px] mb-5 md:mb-0 pr-5   md:mt-8">
+        {/* <div className="font-bold text-[60px]" onClick={() => router.push("/")}>
           PRI.
+        </div> */}
+        <div className="w-[140px]  h-full">
+          <Image
+            src={logo}
+            alt="Platinum Realty Company Logo"
+            onClick={() => router.push("/")}
+            style={{
+              objectFit: "contain",
+            }}
+          />
         </div>
+
         <div className="w-1/3 flex justify-end mr-4 md:mr-0">
           {navLinks.map((link) => {
             return link.name === "Contact" ? (

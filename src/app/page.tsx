@@ -89,7 +89,7 @@ export default function Home() {
             clients.
           </div>
         </div>
-        <div className="md:h-[550px] w-full bg-white text-black flex flex-col justify-center items-center px-5 ">
+        <div className=" w-full bg-white text-black flex flex-col justify-center items-center px-5 rounded-md mb-8 md:pb-5 ">
           <div className="flex flex-col  md:w-[80%]">
             <div className="font-semibold text-[45px]  md:mb-8">
               Our Mission
@@ -103,7 +103,7 @@ export default function Home() {
             </p>
           </div>
         </div>
-        <div className="w-full bg-white text-black flex  flex-col px-5 ">
+        <div className="w-full bg-white text-black flex  flex-col p-5 rounded-md ">
           <div className="font-semibold text-[45px] md:mb-8  md:ml-28">
             Your Future
           </div>
@@ -112,7 +112,7 @@ export default function Home() {
               return (
                 <div
                   key={tab.title}
-                  className="text-black bg-[#FF754C] rounded-md mb-4 md:w-1/3 h-full flex flex-col p-5
+                  className="text-black bg-[#FF754C] rounded-md mb-4 md:w-[400px] md:h-[200px] h-full flex flex-col p-5
               "
                 >
                   <div className="font-bold text-[30px] text-white">
