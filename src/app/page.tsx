@@ -7,10 +7,14 @@ import PropertyCard from "@/components/PropertyCard";
 import Navigation from "@/components/Navigation";
 import { db } from "@/firebase/config";
 import { useRouter } from "next/navigation";
+import Footer from "@/components/Footer";
+import TeamCard from "@/components/TeamCard";
 
 export default function Home() {
   const [properties, setProperties] = useState([]);
+  const [teamMembers, setTeamMembers] = useState([]);
   const propertiesRef = db.collection("properties");
+  const teamRef = db.collection("team");
   const router = useRouter();
 
   const getProperties = () => {
@@ -25,8 +29,20 @@ export default function Home() {
     });
   };
 
+  const getTeamMembers = () => {
+    teamRef.limit(4).onSnapshot((snapshot) => {
+      let teamData = snapshot.docs.map((doc) => {
+        const data = doc.data();
+        const id = doc.id;
+        return { id, ...data };
+      });
+      setTeamMembers(teamData);
+    });
+  };
+
   useEffect(() => {
     getProperties();
+    getTeamMembers();
   }, []);
   const info = [
     {
@@ -111,7 +127,7 @@ export default function Home() {
           </div>
         </div>
         {properties.length > 0 && (
-          <div className="md:h-[250px] w-full bg-black text-white flex  flex-col px-5 md:mt-10">
+          <div className="w-full bg-black text-white flex  flex-col px-5 md:mt-10">
             <div className="font-semibold text-[45px]">Properties</div>
             <div className=" flex flex-col md:flex-row items-center justify-start  gap-5 md:gap-10 my-5">
               {properties.map((p) => {
@@ -127,6 +143,25 @@ export default function Home() {
             </div>
           </div>
         )}
+
+        {teamMembers.length > 0 && (
+          <div className="w-full bg-black text-white flex  flex-col px-5 md:mt-10">
+            <div className="font-semibold text-[45px]">Team Members</div>
+            <div className=" flex flex-col md:flex-row items-center justify-start  gap-5 md:gap-10 my-5">
+              {teamMembers.map((member) => {
+                return (
+                  <div
+                    onClick={() => router.push("/teamMembers")}
+                    key={member.name}
+                  >
+                    <TeamCard member={member} admin={false} />
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        )}
+        <Footer />
       </div>
     </main>
   );

@@ -34,6 +34,10 @@ const Navigation = ({ role }) => {
       route: "/properties",
     },
     {
+      name: "Team",
+      route: "/teamMembers",
+    },
+    {
       name: "Contact",
       contact: handleContact(),
     },

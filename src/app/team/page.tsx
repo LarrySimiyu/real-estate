@@ -28,10 +28,6 @@ const TeamPage = () => {
       name: "Team",
       route: "/team",
     },
-    // {
-    //   name: "Sign Out",
-    //   route: () => handleSignOut(),
-    // },
   ];
 
   const getTeamMembers = () => {

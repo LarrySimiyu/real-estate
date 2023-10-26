@@ -3,10 +3,10 @@ import house from "../../assets/house.jpeg";
 import EditPropertyModal from "./EditPropertyModal";
 import EditTeamModal from "./EditTeamModal";
 
-const TeamCard = ({ member, setEditModalOpen, editModalOpen }) => {
+const TeamCard = ({ member, admin, setEditModalOpen, editModalOpen }) => {
   const { name, role, image } = member;
   return (
-    <div className="flex flex-col cursor-pointer w-[300px] h-[300px] justify-center items-center bg-[#222222] rounded-md hover:border-2 hover:border-white">
+    <div className="flex flex-col cursor-pointer w-[300px] h-[300px] justify-center items-center bg-white text-black rounded-md hover:border-2 hover:border-white">
       {editModalOpen && (
         <EditTeamModal setEditModalOpen={setEditModalOpen} member={member} />
       )}
@@ -24,13 +24,15 @@ const TeamCard = ({ member, setEditModalOpen, editModalOpen }) => {
           <div className="font-bold">{role}</div>
         </div>
 
-        <div
-          className=" flex justify-end text-gray-500"
-          onClick={() => setEditModalOpen(true)}
-        >
-          {" "}
-          Edit{" "}
-        </div>
+        {admin && (
+          <div
+            className=" flex justify-end text-gray-500"
+            onClick={() => setEditModalOpen(true)}
+          >
+            {" "}
+            Edit{" "}
+          </div>
+        )}
       </div>
     </div>
   );

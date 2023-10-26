@@ -6,25 +6,26 @@ import PropertyCard from "@/components/PropertyCard";
 import Navigation from "@/components/Navigation";
 import { db } from "@/firebase/config";
 import Footer from "@/components/Footer";
+import TeamCard from "@/components/TeamCard";
 
-const Properties = () => {
-  const [properties, setProperties] = useState([]);
-  const propertiesRef = db.collection("properties");
+const TeamMembers = () => {
+  const [teamMembers, setTeamMembers] = useState([]);
 
-  const getProperties = () => {
-    propertiesRef.onSnapshot((snapshot) => {
-      let properties = snapshot.docs.map((doc) => {
-        let data = doc.data();
-        let id = doc.id;
+  const teamRef = db.collection("team");
+
+  const getTeamMembers = () => {
+    teamRef.onSnapshot((snapshot) => {
+      let teamData = snapshot.docs.map((doc) => {
+        const data = doc.data();
+        const id = doc.id;
         return { id, ...data };
       });
-
-      setProperties(properties);
+      setTeamMembers(teamData);
     });
   };
 
   useEffect(() => {
-    getProperties();
+    getTeamMembers();
   }, []);
 
   return (
@@ -32,16 +33,16 @@ const Properties = () => {
       <div className="max-w-[1366px] w-full ">
         <Navigation role={"user"} />
 
-        {properties.length === 0 ? (
-          <div>No Properties</div>
+        {teamMembers.length === 0 ? (
+          <div>No Team </div>
         ) : (
           <div className="w-full bg-black text-white flex  flex-col px-5">
-            <div className="font-semibold text-[45px]  md:mb-8">Properties</div>
+            <div className="font-semibold text-[45px]  md:mb-8">Team</div>
             <div className=" flex  flex-col md:grid md:flex-wrap items-center justify-between md:grid-cols-4 gap-5 md:gap-8 my-5">
-              {properties.map((p) => {
+              {teamMembers.map((member) => {
                 return (
                   <>
-                    <PropertyCard key={p.location} property={p} admin={false} />
+                    <TeamCard key={member.name} member={member} admin={false} />
                   </>
                 );
               })}
@@ -53,4 +54,4 @@ const Properties = () => {
   );
 };
 
-export default Properties;
+export default TeamMembers;
