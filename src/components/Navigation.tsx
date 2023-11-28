@@ -47,14 +47,17 @@ const Navigation = ({ role }) => {
   ];
   if (!role) {
     return (
-      <div className=" z-10 w-full items-center justify-between text-sm lg:flex md:h-[70px] border leading-[70px] ">
-        <div
-          className="font-bold text-[60px] border"
-          onClick={() => router.push("/")}
-        >
-          PRI.
+      <div className="z-10 w-full items-center justify-between text-sm flex md:h-[100px] leading-[70px] mb-5 md:mb-0 pr-5   md:mt-8">
+        <div className="w-[140px]  h-full">
+          <Image
+            src={logo}
+            alt="Platinum Realty Company Logo"
+            onClick={() => router.push("/")}
+            style={{
+              objectFit: "contain",
+            }}
+          />
         </div>
-        <Image src={logo} alt="Platinum Realty Company Logo" />
         <div className="w-1/3 flex justify-between">
           {adminNavLinks.map((link) => {
             return link.name === "Sign Out" ? (

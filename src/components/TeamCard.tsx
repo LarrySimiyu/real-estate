@@ -6,17 +6,17 @@ import EditTeamModal from "./EditTeamModal";
 const TeamCard = ({ member, admin, setEditModalOpen, editModalOpen }) => {
   const { name, role, image } = member;
   return (
-    <div className="flex flex-col cursor-pointer w-[300px] h-[300px] justify-center items-center bg-white text-black rounded-md hover:border-2 hover:border-white">
+    <div className="flex flex-col cursor-pointer justify-center items-center text-black rounded-md border border-white">
       {editModalOpen && (
         <EditTeamModal setEditModalOpen={setEditModalOpen} member={member} />
       )}
       <Image
         src={image.length === 0 ? house : image}
         alt="Header"
-        className="h-[160px] w-[260px] rounded-md mb-2 "
+        className="h-[160px] w-[160px] rounded-full mb-2 hover:border-2 hover:border-white"
       />
       {/* data container */}
-      <div className=" w-[260px] ">
+      <div className=" w-[260px] flex flex-col items-center justify-center text-white">
         <div className="font-bold text-[25px] flex items-center justify-between ">
           {name}
         </div>
