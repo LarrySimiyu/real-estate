@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { auth } from "@/firebase/config";
 import Image from "next/image";
-import logo from "../../assets/logo.png";
+import logo from "../../assets/editedLogo.png";
 
 const Navigation = ({ role }) => {
   const router = useRouter();

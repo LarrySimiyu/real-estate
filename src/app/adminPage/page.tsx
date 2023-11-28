@@ -1,15 +1,11 @@
 "use client";
-import React, { useState, useEffect } from "react";
-import { auth, db, uid } from "../../firebase/config";
 import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+import { auth, db } from "../../firebase/config";
 
-import PropertyCard from "@/components/PropertyCard";
-import Link from "next/link";
-import house from "../../../assets/house.jpeg";
-import EditPropertyModal from "@/components/EditPropertyModal";
 import AddPropertyModal from "@/components/AddPropertyModal";
+import PropertyCard from "@/components/PropertyCard";
 
-import TeamCard from "@/components/TeamCard";
 import Navigation from "@/components/Navigation";
 
 const AdminPage = () => {
@@ -52,7 +48,6 @@ const AdminPage = () => {
         let id = doc.id;
         return { id, ...data };
       });
-
       setProperties(properties);
     });
   };
