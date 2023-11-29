@@ -5,8 +5,18 @@ import EditPropertyModal from "./EditPropertyModal";
 const PropertyCard = ({ property, admin, setEditModalOpen, editModalOpen }) => {
   const { price, description, location, image } = property;
 
+  function formatPrice(price) {
+    let USDollar = new Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency: "USD",
+    });
+    return USDollar.format(price);
+  }
+
+  const formattedPrice = formatPrice(price);
+
   return (
-    <div className="flex flex-col cursor-pointer w-[300px] h-[300px] justify-center items-center bg-[#222222] rounded-md hover:border-2 hover:border-white">
+    <div className="flex flex-col cursor-pointer md:w-[300px] h-[300px] w-full p-4 justify-center items-center bg-[#222222] rounded-md hover:border-2 hover:border-white">
       {editModalOpen && (
         <EditPropertyModal
           setEditModalOpen={setEditModalOpen}
@@ -16,17 +26,17 @@ const PropertyCard = ({ property, admin, setEditModalOpen, editModalOpen }) => {
       <Image
         src={image.length === 0 ? house : image}
         alt="Header"
-        className="h-[160px] w-[260px] rounded-md mb-2 "
+        className="md:h-[160px] md:w-[260px] rounded-md mb-2 w-[400px]"
       />
       {/* data container */}
-      <div className=" w-[260px] ">
-        <div className="font-bold text-[25px] flex items-center justify-between ">
-          {price}
+      <div className=" md:w-[260px] w-full ">
+        <div className="font-bold text-[16px] flex items-center justify-between ">
+          {formattedPrice}
           <span className=" text-[12px]">+ Buyer Fee</span>
         </div>
         <div>
-          <div className="font-bold">{description}</div>
           <div className="font-bold">{location}</div>
+          <div>{description}</div>
         </div>
         {admin && (
           <div

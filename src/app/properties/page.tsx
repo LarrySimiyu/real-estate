@@ -36,8 +36,10 @@ const Properties = () => {
           <div>No Properties</div>
         ) : (
           <div className="w-full bg-black text-white flex  flex-col px-5">
-            <div className="font-semibold text-[45px]  md:mb-8">Properties</div>
-            <div className=" flex  flex-col md:grid md:flex-wrap items-center justify-between md:grid-cols-4 gap-5 md:gap-8 my-5">
+            <div className="font-semibold text-[32px]  md:mb-8 flex justify-center">
+              Properties
+            </div>
+            <div className=" flex  flex-col md:grid md:flex-wrap items-center justify-between md:grid-cols-4 gap-5 md:gap-8 md:my-5">
               {properties.map((p) => {
                 return (
                   <>

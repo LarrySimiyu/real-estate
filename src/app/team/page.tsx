@@ -48,6 +48,7 @@ const TeamPage = () => {
     <div className="flex min-h-screen flex-col items-center bg-black text-white md:px-20">
       {addModalOpen && <AddTeamModal setAddModalOpen={setAddModalOpen} />}
       <div className="max-w-[1366px] w-full">
+        <Navigation role="admin" />
         <div className=" z-10 w-full items-center justify-between text-sm lg:flex md:h-[70px]">
           <div className="font-bold text-[60px]">PRI.</div>
           <div className="border w-1/3 flex justify-between">

@@ -62,7 +62,7 @@ const AdminPage = () => {
         <AddPropertyModal setAddPropertyModal={setAddPropertyModal} />
       )}
       <div className="max-w-[1366px] w-full">
-        <Navigation />
+        {/* <Navigation /> */}
         <div
           className=" flex justify-end"
           onClick={() => setAddPropertyModal(true)}
@@ -73,11 +73,11 @@ const AdminPage = () => {
           <div>No Properties Added</div>
         ) : (
           <div className=" flex flex-wrap justify-between gap-10">
-            {properties.map((p) => {
+            {properties.map((p, index) => {
               return (
                 <>
                   <PropertyCard
-                    key={p.location}
+                    key={index}
                     property={p}
                     admin={true}
                     setEditModalOpen={setEditModalOpen}

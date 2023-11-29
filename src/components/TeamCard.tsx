@@ -6,7 +6,7 @@ import EditTeamModal from "./EditTeamModal";
 const TeamCard = ({ member, admin, setEditModalOpen, editModalOpen }) => {
   const { name, role, image } = member;
   return (
-    <div className="flex flex-col cursor-pointer justify-center items-center text-black rounded-md border border-white">
+    <div className="flex flex-col cursor-pointer justify-center items-center text-white rounded-md  hover:border-white">
       {editModalOpen && (
         <EditTeamModal setEditModalOpen={setEditModalOpen} member={member} />
       )}
@@ -16,7 +16,7 @@ const TeamCard = ({ member, admin, setEditModalOpen, editModalOpen }) => {
         className="h-[160px] w-[160px] rounded-full mb-2 hover:border-2 hover:border-white"
       />
       {/* data container */}
-      <div className=" w-[260px] flex flex-col items-center justify-center text-white">
+      <div className="flex flex-col items-center justify-center">
         <div className="font-bold text-[25px] flex items-center justify-between ">
           {name}
         </div>

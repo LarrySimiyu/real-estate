@@ -112,7 +112,7 @@ export default function Home() {
               return (
                 <div
                   key={tab.title}
-                  className="text-black bg-[#FF754C] rounded-md mb-4 md:w-[400px] md:h-[200px] h-full flex flex-col p-5
+                  className="text-black bg-black rounded-md mb-4 md:w-[400px] md:h-[200px] h-full flex flex-col p-5
               "
                 >
                   <div className="font-bold text-[30px] text-white">
