@@ -37,8 +37,8 @@ const TeamMembers = () => {
           <div>No Team </div>
         ) : (
           <div className="w-full bg-black text-white flex  flex-col px-5">
-            <div className="font-semibold text-[32px]  md:mb-8 flex justify-center">
-              Our Team
+            <div className="font-semibold text-[32px]  mb-5 md:mb-8 flex justify-center">
+              PRI Team
             </div>
             <div className=" flex  flex-col md:grid md:flex-wrap items-center justify-between md:grid-cols-4 gap-5 md:gap-8 md:my-5">
               {teamMembers.map((member) => {

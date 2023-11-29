@@ -12,13 +12,38 @@ const Navigation = ({ role }) => {
     auth.signOut().then(() => router.push("/"));
   };
 
-  const handleContact = () => {
-    // TODO: Handle contact
-  };
+  // const handleContact = () => {
+  //   console.log("HELLO")
+  //   // // TODO: Handle contact
+  //   // var email = "larry.simiyu@gmail.com";
+  //   // var subject = "Subject of the email";
+  //   // var body = "Body of the email";
+
+  //   // // Construct the mailto URL
+  //   // var mailtoUrl = "mailto:" + email + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+
+  //   // // Open the default email client
+  //   // window.open(mailtoUrl, "_blank");
+  // }
+  // };
+  const navLinks = [
+    {
+      name: "Properties",
+      route: "/properties",
+    },
+    {
+      name: "Team",
+      route: "/teamMembers",
+    },
+    {
+      name: "Contact",
+      contact: () => console.log("hello"),
+    },
+  ];
 
   const adminNavLinks = [
     {
-      name: "Home",
+      name: "Properties",
       route: "/adminPage",
     },
     {
@@ -31,20 +56,6 @@ const Navigation = ({ role }) => {
     },
   ];
 
-  const navLinks = [
-    {
-      name: "Properties",
-      route: "/properties",
-    },
-    {
-      name: "Team",
-      route: "/teamMembers",
-    },
-    {
-      name: "Contact",
-      contact: handleContact(),
-    },
-  ];
   if (!role) {
     return (
       <div className="z-10 w-full items-center justify-between text-sm flex md:h-[100px] leading-[70px] mb-5 md:mb-0 pr-5   md:mt-8">
@@ -100,7 +111,7 @@ const Navigation = ({ role }) => {
             return link.name === "Contact" ? (
               <button
                 key={link.name}
-                onClick={link.signOut}
+                onClick={() => {}}
                 className="font-bold hover:underline"
               >
                 Contact

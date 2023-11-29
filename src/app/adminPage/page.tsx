@@ -62,12 +62,14 @@ const AdminPage = () => {
         <AddPropertyModal setAddPropertyModal={setAddPropertyModal} />
       )}
       <div className="max-w-[1366px] w-full">
-        {/* <Navigation /> */}
+        <Navigation />
         <div
           className=" flex justify-end"
           onClick={() => setAddPropertyModal(true)}
         >
-          Add Property
+          <button className="p-2 bg-white text-black font-bold text-[14px] rounded-xl">
+            Add Property
+          </button>
         </div>
         {properties.length === 0 ? (
           <div>No Properties Added</div>

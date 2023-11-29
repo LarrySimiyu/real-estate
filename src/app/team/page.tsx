@@ -5,6 +5,7 @@ import TeamCard from "@/components/TeamCard";
 import Link from "next/link";
 import house from "../../../assets/house.jpeg";
 import AddTeamModal from "@/components/AddTeamModal";
+import Navigation from "@/components/Navigation";
 
 import { db } from "@/firebase/config";
 
@@ -18,17 +19,6 @@ const TeamPage = () => {
   const handleSignOut = () => {
     // firebase sign out here
   };
-
-  const navLinks = [
-    {
-      name: "Properties",
-      route: "/adminPage",
-    },
-    {
-      name: "Team",
-      route: "/team",
-    },
-  ];
 
   const getTeamMembers = () => {
     teamRef.onSnapshot((snapshot) => {
@@ -48,24 +38,15 @@ const TeamPage = () => {
     <div className="flex min-h-screen flex-col items-center bg-black text-white md:px-20">
       {addModalOpen && <AddTeamModal setAddModalOpen={setAddModalOpen} />}
       <div className="max-w-[1366px] w-full">
-        <Navigation role="admin" />
-        <div className=" z-10 w-full items-center justify-between text-sm lg:flex md:h-[70px]">
-          <div className="font-bold text-[60px]">PRI.</div>
-          <div className="border w-1/3 flex justify-between">
-            {navLinks.map((link) => {
-              return (
-                <Link href={link.route} key={link.name}>
-                  {link.name}
-                </Link>
-              );
-            })}
-          </div>
-        </div>
+        <Navigation />
+
         <div
           className=" flex justify-end"
           onClick={() => setAddModalOpen(true)}
         >
-          Add Team Member
+          <button className="p-2 bg-white text-black font-bold text-[14px] rounded-xl">
+            Add Team Member
+          </button>
         </div>
         {teamMembers.length === 0 ? (
           <div>No Team Members Added</div>
