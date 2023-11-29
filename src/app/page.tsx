@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { ArrowRight } from "react-feather";
 import Link from "next/link";
@@ -9,10 +9,28 @@ import { db } from "@/firebase/config";
 import { useRouter } from "next/navigation";
 import Footer from "@/components/Footer";
 import TeamCard from "@/components/TeamCard";
+import useIsVisble from "../customHooks/useIsVisible";
 
 export default function Home() {
   const [properties, setProperties] = useState([]);
   const [teamMembers, setTeamMembers] = useState([]);
+
+  const ref1 = useRef();
+  const view1 = useIsVisble(ref1);
+  console.log(view1);
+  const ref2 = useRef();
+  const view2 = useIsVisble(ref2);
+
+  const ref3 = useRef();
+  const view3 = useIsVisble(ref3);
+
+  const ref4 = useRef();
+  const view4 = useIsVisble(ref4);
+  const ref5 = useRef();
+  const view5 = useIsVisble(ref5);
+  const ref6 = useRef();
+  const view6 = useIsVisble(ref6);
+
   const propertiesRef = db.collection("properties");
   const teamRef = db.collection("team");
   const router = useRouter();
@@ -61,7 +79,12 @@ export default function Home() {
     <main className="flex min-h-screen flex-col items-center bg-black text-white  md:px-20">
       <div className="max-w-[1366px] w-full">
         <Navigation role={"user"} />
-        <div className=" w-full  md:h-[100vh] mb-10 md:mb-0 ">
+        <div
+          ref={ref1}
+          className={`w-full  md:h-[100vh] mb-10 md:mb-0 transition-opacity ease-in duration-700 ${
+            view1.isIntersecting ? "opacity-100" : "opacity-0"
+          }`}
+        >
           <div className=" md:w-3/4 md:h-full flex flex-col md:justify-center">
             <div className="text-[55px] md:text-[100px] md:w-[80%] font-bold mb-8 md:leading-[1] px-5">
               Platinum Realty Investments
@@ -76,7 +99,12 @@ export default function Home() {
             </button> */}
           </div>
         </div>
-        <div className=" md:w-full md:flex md:h-[300px] mb-10 px-5">
+        <div
+          ref={ref2}
+          className={`transition-opacity ease-in duration-700 ${
+            view2.isIntersecting ? "opacity-100" : "opacity-0"
+          } md:w-full md:flex md:h-[300px] mb-10 px-5`}
+        >
           <div className=" md:w-[100%]">
             <h1 className="font-semibold text-[45px]">About Us</h1>
           </div>
@@ -89,7 +117,12 @@ export default function Home() {
             clients.
           </div>
         </div>
-        <div className=" w-full bg-white text-black flex flex-col justify-center items-center px-5 rounded-md mb-8 md:pb-5 ">
+        <div
+          ref={ref3}
+          className={`transition-opacity ease-in duration-700 ${
+            view3.isIntersecting ? "opacity-100" : "opacity-0"
+          } w-full bg-white text-black flex flex-col justify-center items-center px-5 rounded-md mb-8 md:pb-5`}
+        >
           <div className="flex flex-col  md:w-[80%]">
             <div className="font-semibold text-[45px]  md:mb-8">
               Our Mission
@@ -103,7 +136,12 @@ export default function Home() {
             </p>
           </div>
         </div>
-        <div className="w-full bg-white text-black flex  flex-col p-5 rounded-md ">
+        <div
+          ref={ref4}
+          className={`transition-opacity ease-in duration-700 ${
+            view4.isIntersecting ? "opacity-100" : "opacity-0"
+          } w-full bg-white text-black flex  flex-col p-5 rounded-md `}
+        >
           <div className="font-semibold text-[45px] md:mb-8  md:ml-28">
             Your Future
           </div>
@@ -127,7 +165,9 @@ export default function Home() {
           </div>
         </div>
         {properties.length > 0 && (
-          <div className="w-full bg-black text-white flex  flex-col px-5 md:mt-10">
+          <div
+            className={`w-full bg-black text-white flex  flex-col px-5 md:mt-10  `}
+          >
             <div className="font-semibold text-[45px]">Properties</div>
             <div className=" flex flex-col md:flex-row items-center justify-start  gap-5 md:gap-10 my-5">
               {properties.map((p) => {
@@ -145,7 +185,9 @@ export default function Home() {
         )}
 
         {teamMembers.length > 0 && (
-          <div className="w-full bg-black text-white flex  flex-col px-5 md:mt-10">
+          <div
+            className={`w-full bg-black text-white flex flex-col px-5 md:mt-10 `}
+          >
             <div className="font-semibold text-[45px]">Team Members</div>
             <div className=" flex flex-col md:flex-row items-center justify-start  gap-5 md:gap-10 my-5">
               {teamMembers.map((member) => {
