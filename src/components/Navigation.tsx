@@ -35,10 +35,6 @@ const Navigation = ({ role }) => {
       name: "Team",
       route: "/teamMembers",
     },
-    {
-      name: "Contact",
-      contact: () => console.log("hello"),
-    },
   ];
 
   const adminNavLinks = [
