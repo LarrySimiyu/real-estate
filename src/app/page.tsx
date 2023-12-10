@@ -85,18 +85,23 @@ export default function Home() {
             view1.isIntersecting ? "opacity-100" : "opacity-0"
           }`}
         >
-          <div className=" md:w-3/4 md:h-full flex flex-col md:justify-center">
-            <div className="text-[55px] md:text-[100px] md:w-[80%] font-bold mb-8 md:leading-[1] px-5">
-              Platinum Realty Investments
+          <div className=" md:h-full flex flex-col md:justify-center items-center">
+            <div className=" flex flex-col items-center justify-center text-[55px] md:text-[70px] md:w-[80%] font-bold mb-8 md:leading-[1]">
+              <h1>Platinum Realty</h1> <h1>Investments</h1>
             </div>
-            <p className="text-[28px] md:text-[20px] w-full md:w-3/4 px-5">
+            <p className="text-[14px] md:text-[18px] w-full px-5 text-center">
               We are your trusted partner for real estate investment, wealth
               growth, passive income, and financial freedom.
             </p>
-            {/* <button className="border rounded-3xl mt-16 md:w-[30%] md:h-12 md:mt-10 hover:text-black hover:bg-white  text-[18px] flex justify-center items-center">
+            <button
+              className="border rounded-3xl mt-16 md:px-10 md:h-12 md:mt-10 text-black bg-white  text-[18px] flex justify-center items-center"
+              onClick={() => {
+                window.location.href = "mailto:platinumrealty23@gmail.com";
+              }}
+            >
               <div className="mr-2">Contact</div>
-              <ArrowRight size={24} />
-            </button> */}
+              <ArrowRight size={22} />
+            </button>
           </div>
         </div>
         <div
@@ -105,10 +110,12 @@ export default function Home() {
             view2.isIntersecting ? "opacity-100" : "opacity-0"
           } md:w-full md:flex md:h-[300px] mb-10 px-5`}
         >
-          <div className=" md:w-[100%]">
-            <h1 className="font-semibold text-[45px]">About Us</h1>
+          <div className="w-1/2">
+            <h1 className="font-semibold text-[25px] md:text-[35px]">
+              About Us
+            </h1>
           </div>
-          <div className="text-[24px] md:text-[30px]">
+          <div className="text-[14px] md:text-[18px]">
             Platinum Realty Investments is a premier real estate acquisition
             group dedicated to maximizing the potential of every investment
             opportunity. With a proven track record of success, we specialize in
@@ -117,32 +124,31 @@ export default function Home() {
             clients.
           </div>
         </div>
-        <div
-          ref={ref3}
-          className={`transition-opacity ease-in duration-700 ${
-            view3.isIntersecting ? "opacity-100" : "opacity-0"
-          } w-full bg-white text-black flex flex-col justify-center items-center px-5 rounded-md mb-8 md:pb-5`}
-        >
-          <div className="flex flex-col  md:w-[80%]">
-            <div className="font-semibold text-[45px]  md:mb-8">
-              Our Mission
+        <div className="flex justify-center" ref={ref3}>
+          <div
+            className={`transition-opacity ease-in duration-700 ${
+              view3.isIntersecting ? "opacity-100" : "opacity-0"
+            } w-3/4 bg-white text-black flex flex-col justify-center items-center px-5 rounded-md mb-8 md:pb-5`}
+          >
+            <div className="flex flex-col  md:w-[80%]">
+              <h1 className="md:text-[30px] font-bold my-4 text-center">
+                Creation of investment opportunities
+              </h1>
+              <p className="text-[14px] md:text-[18px] md:full text-center">
+                Empowering wealth creation through diverse investment
+                opportunities for long-term financial success.
+              </p>
             </div>
-            <div className="md:text-[80px] md:w-[50%] font-bold md:mb-8 mb-4 leading-[1] ">
-              Creation of investment opportunities
-            </div>
-            <p className="text-[24px] md:w-1/2 ">
-              Empowering wealth creation through diverse investment
-              opportunities for long-term financial success.
-            </p>
           </div>
         </div>
-        <div
+
+        {/* <div
           ref={ref4}
           className={`transition-opacity ease-in duration-700 ${
             view4.isIntersecting ? "opacity-100" : "opacity-0"
           } w-full bg-white text-black flex  flex-col p-5 rounded-md `}
         >
-          <div className="font-semibold text-[45px] md:mb-8  md:ml-28">
+          <div className="font-semibold md:text-[30px] md:mb-8  md:ml-28">
             Your Future
           </div>
           <div className="flex  flex-col md:flex-row justify-between md:justify-around  items-center  ">
@@ -163,8 +169,8 @@ export default function Home() {
               );
             })}
           </div>
-        </div>
-        {properties.length > 0 && (
+        </div> */}
+        {/* {properties.length > 0 && (
           <div
             className={`w-full bg-black text-white flex  flex-col px-5 md:mt-10  `}
           >
@@ -182,8 +188,8 @@ export default function Home() {
               })}
             </div>
           </div>
-        )}
-
+        )} */}
+        {/* 
         {teamMembers.length > 0 && (
           <div
             className={`w-full bg-black text-white flex flex-col px-5 md:mt-10 `}
@@ -202,7 +208,7 @@ export default function Home() {
               })}
             </div>
           </div>
-        )}
+        )} */}
         <Footer />
       </div>
     </main>
