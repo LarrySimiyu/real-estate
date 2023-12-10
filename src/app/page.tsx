@@ -81,7 +81,7 @@ export default function Home() {
         <Navigation role={"user"} />
         <div
           ref={ref1}
-          className={`w-full  md:h-[100vh] mb-10 md:mb-0 transition-opacity ease-in duration-700 ${
+          className={`w-full bg-gradient-to-t from-transparent to-amber-500 bg-opacity-50 md:h-[100vh] mb-10 md:mb-0 transition-opacity ease-in duration-700 rounded-t-2xl  ${
             view1.isIntersecting ? "opacity-100" : "opacity-0"
           }`}
         >
