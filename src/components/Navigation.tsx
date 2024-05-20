@@ -94,9 +94,9 @@ const Navigation = ({ role }) => {
   {
     return (
       <div className="z-10 w-full items-center justify-between text-sm flex md:h-[100px] leading-[70px] mb-5 md:mb-0 pr-5 text-[#ffc107]  md:mt-8">
-        {/* <div className="font-bold text-[60px]" onClick={() => router.push("/")}>
+        <div className="font-bold text-[60px]" onClick={() => router.push("/")}>
           PRI.
-        </div> */}
+        </div>
         <div className="w-[140px]  h-full">
           <Image
             src={logo}
